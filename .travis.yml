@@ -6,7 +6,7 @@ language: node_js
 node_js:
 - node
 addons:
-  firefox: '47.0.1'
+  firefox: latest-esr
 cache:
   directories:
   - node_modules
@@ -14,7 +14,7 @@ cache:
 before_install:
 - "if [ -d node_modules ] && [ x$(cat node_modules/.last-node-version 2>/dev/null) != x$(node -e 'console.log(process.version)') ]; then npm rebuild && node -e 'console.log(process.version)' > node_modules/.last-node-version; fi"
 before_script:
-- npm install web-component-tester bower@1.7.9 wct-local@2.0.8
+- npm install web-component-tester bower@1.7.9
 - $(npm bin)/bower install
 script:
 - xvfb-run $(npm bin)/wct
