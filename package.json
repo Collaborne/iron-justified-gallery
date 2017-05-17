@@ -31,6 +31,6 @@
     "merge-stream": "^1.0.0",
     "polylint": "^2.9.0",
     "wct-local": "^2.0.12",
-    "web-component-tester": "^5.0.0"
+    "web-component-tester": "^6.0.0"
   }
 }
