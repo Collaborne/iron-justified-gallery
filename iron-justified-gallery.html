@@ -27,6 +27,8 @@ A gallery for images using flickr justified-layout.
 			}
 		</style>
 
+		<div id="html" on-tap="_onTap"></div>
+
 	</template>
 </dom-module>
 
@@ -74,7 +76,6 @@ A gallery for images using flickr justified-layout.
 		 	 * more details: https://elements.polymer-project.org/elements/iron-resizable-behavior?active=Polymer.IronResizableBehavior)
 			 */
 			'iron-resize': '_redraw',
-			'tap': '_onTap'
 		},
 
 		/**
@@ -115,8 +116,8 @@ A gallery for images using flickr justified-layout.
 			}
 
 			// attach the elements and set the dimensions of the gallery
-			this.innerHTML = elementsToBeAttached;
-			this.style.height = geometry.containerHeight + "px";
+			this.$.html.innerHTML = elementsToBeAttached;
+			this.$.html.style.height = geometry.containerHeight + "px";
 		},
 
 		/**
@@ -179,3 +180,4 @@ A gallery for images using flickr justified-layout.
 })();
 
 </script>
+
