@@ -126,7 +126,7 @@ A gallery for images using flickr justified-layout.
 		_redraw: function() {
 			// Avoid race condition on initial load: the data might be set
 			// before the width of the element is known
-			this.async(() => this._renderImages(this.images, this.galleryWidth, this.rowHeight));
+			setTimeout(() => this._renderImages(this.images, this.galleryWidth, this.rowHeight), 1);
 		},
 
 		/**
