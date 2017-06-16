@@ -9,42 +9,44 @@
 
 	<body>
 		<demo-snippet>
-			<template is="dom-bind">
-				<iron-justified-gallery id="gallery" on-tap-image="onTapImage">
-				</iron-justified-gallery>
+			<dom-bind>
+				<template>
+					<iron-justified-gallery images="[[images]]" on-tap-image="onTapImage">
+					</iron-justified-gallery>
 
-				<script>
-					const array = [{
-						"width": 500,
-						"url": "https://static.pexels.com/photos/248159/pexels-photo-248159.jpeg",
-						"icon": "icons:file-download"
-					},
-					{
-						"width": 600,
-						"url": "https://static.pexels.com/photos/281024/pexels-photo-281024.jpeg"
-					},
-					{
-						"width": 1000,
-						"url": "https://static.pexels.com/photos/166571/pexels-photo-166571.jpeg"
-					},
-					{
-						"width": 400,
-						"url": "https://static.pexels.com/photos/199089/pexels-photo-199089.jpeg"
-					},
-					{
-						"width": 1000,
-						"url": "https://static.pexels.com/photos/244483/pexels-photo-244483.jpeg"
-					}];
+					<script>
+						var scope = document.querySelector('dom-bind');
+						scope.images = [
+							{
+								"width": 500,
+								"url": "https://static.pexels.com/photos/248159/pexels-photo-248159.jpeg",
+								"icon": "icons:file-download"
+							},
+							{
+								"width": 600,
+								"url": "https://static.pexels.com/photos/281024/pexels-photo-281024.jpeg"
+							},
+							{
+								"width": 1000,
+								"url": "https://static.pexels.com/photos/166571/pexels-photo-166571.jpeg"
+							},
+							{
+								"width": 400,
+								"url": "https://static.pexels.com/photos/199089/pexels-photo-199089.jpeg"
+							},
+							{
+								"width": 1000,
+								"url": "https://static.pexels.com/photos/244483/pexels-photo-244483.jpeg"
+							}
+						];
 
-					document.getElementById('gallery').images = array;
-
-					var scope = document.querySelector('template[is=dom-bind]');
-					// Shows how to handle tap on an image
-					scope.onTapImage = function(e) {
-						alert('Image url: ' + e.detail.url);
-					};
-				</script>
-			</template>
+						// Shows how to handle tap on an image
+						scope.onTapImage = function(e) {
+							alert('Image url: ' + e.detail.url);
+						};
+					</script>
+				</template>
+			</dom-bind>
 		</demo-snippet>
 	</body>
 </html>
