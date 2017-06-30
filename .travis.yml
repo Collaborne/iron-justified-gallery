@@ -15,3 +15,12 @@ before_install:
 - "if [ -d node_modules ] && [ x$(cat node_modules/.last-node-version 2>/dev/null) != x$(node -e 'console.log(process.version)') ]; then npm rebuild --update-binary && node -e 'console.log(process.version)' > node_modules/.last-node-version; fi"
 script:
 - xvfb-run npm test
+deploy:
+  provider: npm
+  email: npm@collaborne.com
+  api_key:
+    secure: "kuzDVqooWqCiboLDMRUkY+MpiPcNxNt3bcsoOA5GPYQfWuTuxV1dc1sL+2N1GmJiPkYbHvB9dsnuAaZI6dLYAJp+ABmhyxMVebbK3EyeTHE6PxqLG6TTaz9WbPuA2Ml9vuo4xS+K0LrapbkxZg4h8fFEApRCL0jIrvW2DDTSih/otl9t7FvoTcOspCJAgM0/KfGtSlKHIpiK0g7PMqA7Bwd0H/ZfDu7B9QIpWnWMifS0CZ85HC8/6rpJIubPRzF/oQVMZlEvpNtKae0a8XC5hS/BBgRygybGYZIqhc86Pal4ioZup+PIA8VFGkA+f5lxXK291tHnl5OA4xX36wahAcuxoRDE2Qf+x+4pQ9DYLSNk3iMrV1QIbirbEc2cUPoh/DdZXl+iFPgpDxtUCuOP7trgi5RBqbjfpT3lLbzRklXMPtzNCZRxGQ1t9ytB9nM2NI86jF9fWhNIBa6ZDnyRrRBUqGyVDmyn0+wXV0190JRnVrTDNWWoWXu51J0pJWghlkKnrwy2QXB8v+3cmgkNd4gFfThKyZXngXZktsms8Gk78vwHzAIMYvYt7uB1vywrAMcjBVHOzMOjnr/SmVr+hGgY57wUx8ZOzV+5kDqmc4FtVPBo743uk4amDEJZOrvBgNMqTPac1MEkYAcagtRsR0kBtMb+EVGtumlNul1qt2I="
+  on:
+    tags: true
+    condition: $(node -e 'console.log("v" + require("./package.json").version)') = ${TRAVIS_TAG}
+  skip_cleanup: true
