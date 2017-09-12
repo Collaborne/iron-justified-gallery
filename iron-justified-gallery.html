@@ -69,6 +69,14 @@ A gallery for images using flickr justified-layout.
 						type: Number,
 						value: 200,
 					},
+
+					/**
+					 * Padding around the gallery container
+					 */
+					containerPadding: {
+						type: Number,
+						value: 10,
+					},
 				};
 			}
 
@@ -93,8 +101,9 @@ A gallery for images using flickr justified-layout.
 			* 				this defaults to maximal available space for the element)
 			* @param rowHeight the height of a single row. Either set or defaults
 			*				to 200px.
+			* @param containerPadding the padding around the cntainer
 			*/
-			_renderImages(images, galleryWidth, rowHeight) {
+			_renderImages(images, galleryWidth, rowHeight, containerPadding) {
 				if (!images || images.length === 0) {
 					// Ignore initial calls
 					return;
@@ -102,7 +111,8 @@ A gallery for images using flickr justified-layout.
 
 				const galleryParameters = {
 					containerWidth: galleryWidth || this.offsetWidth,
-					targetRowHeight: rowHeight
+					targetRowHeight: rowHeight,
+					containerPadding,
 				};
 
 				// extract image widths
@@ -132,7 +142,7 @@ A gallery for images using flickr justified-layout.
 			_redraw() {
 				// Avoid race condition on initial load: the data might be set
 				// before the width of the element is known
-				setTimeout(() => this._renderImages(this.images, this.galleryWidth, this.rowHeight), 1);
+				setTimeout(() => this._renderImages(this.images, this.galleryWidth, this.rowHeight, this.containerPadding), 1);
 			}
 
 			/**
