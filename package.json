@@ -20,9 +20,6 @@
   },
   "author": "Collaborne <opensource@collaborne.com>",
   "license": "Apache-2.0",
-  "dependencies": {
-    "justified-layout": "^2.1.0"
-  },
   "devDependencies": {
     "bower": "^1.7.7",
     "gulp": "^3.9.0",
@@ -32,5 +29,8 @@
     "polylint": "^2.9.0",
     "wct-local": "^2.0.12",
     "web-component-tester": "^6.0.0"
+  },
+  "dependencies": {
+    "bower-npm-resolver": "^0.9.1"
   }
 }
