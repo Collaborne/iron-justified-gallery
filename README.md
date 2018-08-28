@@ -4,9 +4,30 @@ Polymer element that shows a pretty formatted gallery (using the Flickr justifie
 
 ## Install
 
-~~~~
-npm install iron-justified-gallery --save
-~~~~
+```sh
+npm install iron-justified-gallery
+```
+
+----
+This component can be used with bower, as long as [bower-npm-resolver](https://github.com/mjeanroy/bower-npm-resolver) is enabled in your project:
+```sh
+npm install bower-npm-resolver
+```
+
+Enable the resolver by adding something like this to `.bowerrc`:
+```json
+{
+  "resolvers": [
+    "bower-npm-resolver"
+  ]
+}
+```
+
+Then install the component:
+```sh
+bower install iron-justified-gallery
+```
+----
 
 ```html
 <iron-justified-gallery
